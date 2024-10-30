@@ -14,6 +14,25 @@ function Forms() {
             >
               <div className="bg-slate-600 w-12 h-12 flex items-center justify-center p-2 rounded-lg">
                 <FontAwesomeIcon
+                  icon="fa-solid fa-image"
+                  className="text-2xl"
+                />
+              </div>
+            </label>
+            <input
+              type="text"
+              id="nama"
+              placeholder="Masukkan link Gambar Profile"
+              className="mt-4 border-opacity-40 mb-4 w-full py-1 bg-transparent  border-gray-300 focus:outline-none transition duration-200 ease-in-out pb-2"
+            />
+          </div>
+          <div className="flex items-center space-x-3 border-2 px-2 py-1 rounded-xl border-slate-600 mt-3">
+            <label
+              htmlFor="nama"
+              className="block text-white text-sm font-bold"
+            >
+              <div className="bg-slate-600 w-12 h-12 flex items-center justify-center p-2 rounded-lg">
+                <FontAwesomeIcon
                   icon="fa-solid fa-signature"
                   className="text-2xl"
                 />

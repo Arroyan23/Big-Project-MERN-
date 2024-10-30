@@ -19,7 +19,7 @@ function News() {
             <tr className=" cursor-pointer transition hover:bg-slate-300 hover:rounded-xl border-t-2 dark:border-slate-500">
               <td className="p-4 flex space-x-3">
                 <img
-                  src="https://media.istockphoto.com/id/2175689331/photo/photo-of-successful-positive-entrepreneur-businessman-hold-his-new-macbook-pro-typing-his.webp?a=1&b=1&s=612x612&w=0&k=20&c=u_uuH6AFv0aorO98uKZUwztDIpgfNzaBm8iYkE0nKyQ="
+                  src="https://plus.unsplash.com/premium_photo-1678197937465-bdbc4ed95815?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                   alt=""
                   className="h-14 object-cover w-14 rounded-full"
                 />
