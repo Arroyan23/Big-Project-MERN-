@@ -4,8 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 function SlashData() {
   return (
     <>
-      <div className="flex space-x-6">
-        <div className="flex items-center space-x-5 dark:text-white shadow-lg shadow-slate-900 bg-slate-700 w-96 p-4 rounded-xl max-w-96">
+      <div className="flex space-x-6 lg:space-x-0 lg:flex-wrap">
+        <div className="flex items-center space-x-5 dark:text-white shadow-lg shadow-slate-900 bg-slate-700 w-96 p-4 rounded-xl max-w-96 lg:mr-10">
           <div className="w-11 h-11 flex items-center justify-center bg-gradient-to-br from-indigo-800 to-sky-700 via-sky-700 rounded-lg">
             <FontAwesomeIcon
               icon="fa-solid fa-money-check-dollar"
@@ -19,7 +19,7 @@ function SlashData() {
             </p>
           </div>
         </div>
-        <div className="flex items-center space-x-5 dark:text-white shadow-lg shadow-slate-900 bg-slate-700 w-96 p-4 rounded-xl max-w-96">
+        <div className="flex items-center space-x-5 dark:text-white shadow-lg shadow-slate-900 bg-slate-700 w-96 p-4 rounded-xl max-w-96 ">
           <div className="w-11 h-11 flex items-center justify-center bg-gradient-to-br from-indigo-800 to-sky-700 via-sky-700 rounded-lg">
             <FontAwesomeIcon
               icon="fa-solid fa-money-check-dollar"
