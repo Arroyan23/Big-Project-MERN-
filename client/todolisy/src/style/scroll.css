@@ -1,0 +1,26 @@
+.custom-scrollbar {
+  scrollbar-width: thin; /* Untuk Firefox */
+  scrollbar-color: rgba(0, 0, 0, 0.8) transparent; /* Untuk Firefox */
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px; /* Lebar scrollbar */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent; /* Tidak ada background untuk track */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.8); /* Warna thumb scrollbar */
+  border-radius: 10px; /* Mengrounding sudut thumb */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 1); /* Warna thumb saat hover */
+}
+
+/* Menghilangkan panah scrollbar di Chrome */
+.custom-scrollbar::-webkit-scrollbar-button {
+  display: none; /* Sembunyikan panah atas dan bawah */
+}
