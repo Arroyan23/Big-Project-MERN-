@@ -44,8 +44,11 @@ app.post("/add/8753", async (req, res) => {
 });
 
 // halaman untuk menangkap detail
-app.get("/user/:id", (req, res) => {
+app.get("/detail/:id", async (req, res) => {
   // tangkap id nya menggunakan params
+  const userDetailId = req.params.id;
+  const findDetailById = await privateInfo.findOne({ profile: userDetailId });
+  res.json(findDetailById);
 });
 
 // untuk delete user di collection

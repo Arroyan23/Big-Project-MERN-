@@ -2,6 +2,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function News() {
   // masukkan ke use state
@@ -36,6 +37,8 @@ function News() {
       }
     }
   };
+
+  const Navigate = useNavigate();
   return (
     <>
       <div className="max-w-full custom-scrollbar shadow-xl dark:text-white shadow-slate-900 rounded-xl dark:bg-slate-700">
@@ -56,7 +59,10 @@ function News() {
             {mhsData.map((e, i) => {
               return (
                 <>
-                  <tr className=" cursor-pointer transition hover:bg-slate-300 hover:rounded-xl border-t-2 dark:border-slate-500">
+                  <tr
+                    onClick={() => Navigate(`/detail/${e._id}`)}
+                    className=" cursor-pointer transition hover:bg-slate-300 hover:rounded-xl border-t-2 dark:border-slate-500"
+                  >
                     <td className="p-4 flex space-x-3">
                       <img
                         src={e.poster}
