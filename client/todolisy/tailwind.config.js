@@ -8,6 +8,9 @@ export default {
         playwrite: ["Playwrite GB S"],
         lexend: ["Lexend"],
       },
+      animation: {
+        floating: "floating 3s ease-in-out infinite",
+      },
     },
   },
   plugins: [],

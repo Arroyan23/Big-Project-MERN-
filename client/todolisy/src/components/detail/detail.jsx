@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Card } from "./card";
+import { PrivateInformation } from "./private";
+import { PrivateDetail } from "./information/privatedetail";
 
 export const DetailCard = ({ id }) => {
   const [home, setHome] = useState(null);
@@ -22,6 +24,8 @@ export const DetailCard = ({ id }) => {
     fetchDetail();
   }, [id]);
 
+  // ambil untuk mengambil data
+
   return (
     <>
       {home ? (
@@ -33,6 +37,8 @@ export const DetailCard = ({ id }) => {
             phone={home.phone}
             city={home.city}
           />
+          <PrivateInformation />
+          <PrivateDetail />
         </>
       ) : (
         <p>Loading...</p>
