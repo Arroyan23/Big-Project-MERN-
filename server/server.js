@@ -3,8 +3,9 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const port = 5000;
-const mongoose = require("mongoose");
 require("./database/db");
+const mahasiswa = require("./model/user");
+const privateInfo = require("./model/privateinformation");
 
 // middleware
 app.use(cors());
@@ -12,28 +13,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // model mongoose
-const mahasiswa = mongoose.model("mahasiswa", {
-  poster: {
-    type: String,
-    required: true,
-  },
-  nama: {
-    type: String,
-    required: true,
-  },
-  email: {
-    type: String,
-    required: true,
-  },
-  phone: {
-    type: String,
-    required: true,
-  },
-  city: {
-    type: String,
-    required: true,
-  },
-});
 
 // fungsi menampilkan data
 app.get("/student/18369si", async (req, res) => {
@@ -52,11 +31,21 @@ app.post("/add/8753", async (req, res) => {
       phone,
       city,
     });
-    newMahasiswa.save();
+    // ketika ini dibuat detail juga dibuat
+    await newMahasiswa.save();
+    const newPrivInformation = new privateInfo({
+      profile: newMahasiswa._id,
+    });
+    await newPrivInformation.save();
     res.status(201).json(newMahasiswa);
   } catch {
     console.log("gagal memasukkan data ke dalam database");
   }
+});
+
+// halaman untuk menangkap detail
+app.get("/user/:id", (req, res) => {
+  // tangkap id nya menggunakan params
 });
 
 // untuk delete user di collection

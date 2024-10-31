@@ -50,34 +50,6 @@ function News() {
             </tr>
           </thead>
           <tbody>
-            <tr className=" cursor-pointer transition hover:bg-slate-300 hover:rounded-xl border-t-2 dark:border-slate-500">
-              <td className="p-4 flex space-x-3">
-                <img
-                  src="https://plus.unsplash.com/premium_photo-1678197937465-bdbc4ed95815?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  alt=""
-                  className="h-14 object-cover w-14 rounded-full"
-                />
-                <div className="">
-                  Muhammad Azzam Wartathutra
-                  <p className="text-slate-400">azzamwartaputra@gmail.com</p>
-                </div>
-              </td>
-              <td className="p-4">Kasus</td>
-              <td className="p-4">Indonesia</td>
-              <td>
-                <button className="bg-slate-300 w-24 h-9 text-center rounded-lg mr-4">
-                  <FontAwesomeIcon
-                    icon="fa-solid fa-pen-to-square"
-                    className="mr-3"
-                  />
-                  Edit
-                </button>
-                <button className="bg-red-500 w-24 h-9 rounded-lg text-white">
-                  <FontAwesomeIcon icon="fa-solid fa-trash" className="mr-3" />
-                  Delete
-                </button>
-              </td>
-            </tr>
             {/* batas contoh untuk konfirmasi ke dalam mongo db */}
 
             {/* Tambahkan baris lain jika diperlukan */}

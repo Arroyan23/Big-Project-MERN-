@@ -4,6 +4,7 @@ import HomePages from "../pages/homepages";
 import NavBar from "../layout/navbar";
 import HomeSlash from "../pages/slash";
 import NewStudent from "../pages/newstudent";
+import { DetailUser } from "../pages/detailuser";
 
 export const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ export const router = createBrowserRouter([
       {
         path: "/add",
         element: <NewStudent />,
+      },
+      {
+        path: "/detail/:id",
+        element: <DetailUser />,
       },
     ],
   },
