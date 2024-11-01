@@ -3,9 +3,18 @@ import { useState, useEffect } from "react";
 import { Card } from "./card";
 import { PrivateInformation } from "./private";
 import { PrivateDetail } from "./information/privatedetail";
+import { UpdateDetail } from "./information/updateinformation";
 
 export const DetailCard = ({ id }) => {
   const [home, setHome] = useState(null);
+
+  const [modalBox, setModalBox] = useState(false);
+
+  // buat fungsi untuk menutup
+
+  const modalBoxGotLifted = (value) => {
+    setModalBox(value);
+  };
 
   useEffect(() => {
     const fetchDetail = async () => {
@@ -38,7 +47,9 @@ export const DetailCard = ({ id }) => {
             city={home.city}
           />
           <PrivateInformation />
-          <PrivateDetail />
+
+          <PrivateDetail updateModal={setModalBox} />
+          {modalBox && <UpdateDetail modalBoxLifted={modalBoxGotLifted} />}
         </>
       ) : (
         <p>Loading...</p>

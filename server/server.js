@@ -34,6 +34,10 @@ app.post("/add/8753", async (req, res) => {
     // ketika ini dibuat detail juga dibuat
     await newMahasiswa.save();
     const newPrivInformation = new privateInfo({
+      nim: null,
+      birth: null,
+      sex: null,
+      adress: null,
       profile: newMahasiswa._id,
     });
     await newPrivInformation.save();
