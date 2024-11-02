@@ -47,6 +47,32 @@ app.post("/add/8753", async (req, res) => {
   }
 });
 
+// menjalankan fungsi update
+app.put("/update/detail/:id", async (req, res) => {
+  // ambil id dari params
+  const userIdDetail = req.params.id;
+  // ambil semua yang dibutuhkan dari id
+  const { nim, birth, sex, adress } = req.body;
+  // findOneAndUpdate
+  const filterDetailDB = { profile: userIdDetail };
+  const updateData = {
+    nim,
+    birth,
+    sex,
+    adress,
+  };
+  try {
+    const findDetail = await privateInfo.findOneAndUpdate(
+      filterDetailDB,
+      updateData,
+      { new: true }
+    );
+    res.json(findDetail);
+  } catch {
+    console.log("Something when wrong getting update");
+  }
+});
+
 // halaman untuk menangkap detail
 app.get("/detail/:id", async (req, res) => {
   // tangkap id nya menggunakan params
