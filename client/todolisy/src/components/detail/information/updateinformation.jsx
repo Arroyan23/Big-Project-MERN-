@@ -11,9 +11,9 @@ export const UpdateDetail = ({ modalBoxLifted }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [detail, setDetail] = useState(null);
 
-  const modalClosed = () => {
-    setIsVisible(false);
-    setTimeout(() => modalBoxLifted(false), 150);
+  const modalClosed = (value) => {
+    setIsVisible(value);
+    setTimeout(() => modalBoxLifted(value), 150);
   };
 
   // untuk memanggil kembali
@@ -34,5 +34,13 @@ export const UpdateDetail = ({ modalBoxLifted }) => {
 
   // untuk melakukan update
 
-  return <>{detail ? <FormsData detail={detail} /> : <p>Loading...</p>}</>;
+  return (
+    <>
+      {detail ? (
+        <FormsData detail={detail} setUpdateModal={modalClosed} />
+      ) : (
+        <p>Loading...</p>
+      )}
+    </>
+  );
 };

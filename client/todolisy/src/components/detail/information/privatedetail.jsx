@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { LoadingElementsss } from "../loading";
+import { motion } from "framer-motion";
 
 // halaman untuk detail information
 export const PrivateDetail = ({ updateModal }) => {
@@ -28,12 +29,15 @@ export const PrivateDetail = ({ updateModal }) => {
     <>
       {detail ? (
         <div className="dark:text-white mt-6">
-          <button
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
             onClick={() => updateModal(true)}
+            transition={{ type: "spring", stiffness: 400, damping: 10 }}
             className="bg-gradient-to-r from-slate-700 to-slate-700 py-2 px-4 shadow-xl shadow-slate-950 rounded-xl"
           >
             Add New Detail
-          </button>
+          </motion.button>
           <div className="mt-3">
             <p>NIM:</p>
             {detail.nim ? (

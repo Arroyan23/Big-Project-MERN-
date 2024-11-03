@@ -3,10 +3,12 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
-export const FormsData = ({ detail, setUserUpdate }) => {
+export const FormsData = ({ detail, setUpdateModal }) => {
   const [isVisible, setIsVisible] = useState(false);
-
+  const Navigate = useNavigate();
   //   untuk set onChange
   const [nim, setName] = useState("");
   const [birth, setBirth] = useState("");
@@ -16,10 +18,10 @@ export const FormsData = ({ detail, setUserUpdate }) => {
   const { id } = useParams();
   //   untuk set halaman ketika di render
   useEffect(() => {
-    setName(detail.nim);
-    setBirth(detail.birth);
-    setSex(detail.sex);
-    setAdress(detail.adress);
+    setName(detail.nim || "");
+    setBirth(detail.birth || "");
+    setSex(detail.sex || "");
+    setAdress(detail.adress || "");
   }, []);
 
   //   untuk halaman men set animasi
@@ -29,7 +31,7 @@ export const FormsData = ({ detail, setUserUpdate }) => {
 
   const modalClosed = () => {
     setIsVisible(false);
-    setTimeout(() => modalBoxLifted(false), 150);
+    setTimeout(() => setUpdateModal(false), 150);
   };
 
   //   gunakan update untuk melakukan update
@@ -40,7 +42,8 @@ export const FormsData = ({ detail, setUserUpdate }) => {
         `http://localhost:5000/update/detail/${id}`,
         updateDetail
       );
-      alert("data berhasil untuk di update");
+      alert("halaman berhasil di update");
+      Navigate(0, { replace: true });
     } catch {
       console.log("Halaman gagal untuk di update: FrontEnd React");
     }
@@ -95,14 +98,18 @@ export const FormsData = ({ detail, setUserUpdate }) => {
             <label htmlFor="inputField" className="block mb-2 my-3">
               Jenis Kelamin
             </label>
-            <input
-              type="text"
-              id="inputField"
+            <select
+              id="sex"
               className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500 text-black"
-              placeholder="Masukkan Nim"
               value={sex}
               onChange={(e) => setSex(e.target.value)}
-            />
+            >
+              <option value="" disabled>
+                Pilih Jenis Kelamin
+              </option>
+              <option value="Laki-laki">Laki-laki</option>
+              <option value="Perempuan">Perempuan</option>
+            </select>
             <label htmlFor="inputField" className="block mb-2 my-3">
               Alamat Lengkap
             </label>
@@ -115,12 +122,14 @@ export const FormsData = ({ detail, setUserUpdate }) => {
               onChange={(e) => setAdress(e.target.value)}
             />
           </form>
-          <button
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
             className="bg-slate-600 py-2 px-5 rounded-xl shadow-lg mt-3 text-white"
             onClick={updateDetail}
           >
             Update
-          </button>
+          </motion.button>
         </div>
       </div>
     </>
